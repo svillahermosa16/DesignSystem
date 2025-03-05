@@ -4,9 +4,6 @@
     "black": {
       "$value": "#000000"
     },
-    "white": {
-      "$value": "#ffffff"
-    },
     "orange": {
       "100": {
         "$value": "#fffaf0"
