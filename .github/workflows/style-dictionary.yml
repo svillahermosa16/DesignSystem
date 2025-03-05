@@ -3,11 +3,11 @@ name: Generar Tokens con Style Dictionary
 on:
   push:
     branches:
-      - develop # Ejecutar solo en develop
+      - develop
     paths:
       - 'DesignSystem/config.json'
       - 'DesignSystem/tokens/**'
-  workflow_dispatch: # Permite ejecutar el workflow manualmente
+  workflow_dispatch:
 
 jobs:
   build:
@@ -17,8 +17,8 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      - name: Lista de archivos en Sources
-        run: ls -al DesignSystem/Sources/
+      - name: Lista de archivos en DesignSystem
+        run: ls -al DesignSystem/
 
       - name: Configurar Node.js
         uses: actions/setup-node@v3
@@ -35,5 +35,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Actualizar tokens generados con Style Dictionary"
-          branch: develop # commit en la rama develop
+          branch: develop
           file_pattern: "build/**"
