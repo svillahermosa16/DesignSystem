@@ -28,6 +28,13 @@ jobs:
       - name: Instalar dependencias
         run: npm install style-dictionary
 
+      - name: Verificar existencia de config.json
+        run: |
+          if [ ! -f config.json ]; then
+            echo "config.json no se encuentra en el directorio raíz."
+            exit 1
+          fi
+
       - name: Ejecutar Style Dictionary
         run: npx style-dictionary build config.json
 
