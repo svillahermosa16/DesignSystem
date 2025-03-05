@@ -50,7 +50,7 @@
       "$value": "60px"
     },
     "max": {
-      "$value": "9999px"
+      "$value": "9998px"
     }
   }
 }
