@@ -25,5 +25,5 @@ public enum StyleDictionarySize {
     public static let dimensions7 = CGFloat(448.00)
     public static let dimensions8 = CGFloat(512.00)
     public static let dimensions9 = CGFloat(576.00)
-    public static let dimensionsMax = CGFloat(159984.00)
+    public static let dimensionsMax = CGFloat(159968.00)
 }

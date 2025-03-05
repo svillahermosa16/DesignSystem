@@ -19,5 +19,4 @@ public enum StyleDictionaryColor {
     public static let colorsOrange700 = UIColor(red: 0.753, green: 0.337, blue: 0.129, alpha: 1)
     public static let colorsOrange800 = UIColor(red: 0.612, green: 0.259, blue: 0.129, alpha: 1)
     public static let colorsOrange900 = UIColor(red: 0.482, green: 0.204, blue: 0.118, alpha: 1)
-    public static let colorsWhite = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
 }
