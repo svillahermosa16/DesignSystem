@@ -45,17 +45,15 @@ jobs:
         working-directory: DesignSystem
         run: npx style-dictionary build config.json
 
-      - name: Lista de archivos generados
-        working-directory: DesignSystem
-        run: ls -al build
+      - name: Lista de archivos generados en DesignSystem
+        run: ls -al DesignSystem
 
       - name: Añadir cambios generados
-        working-directory: DesignSystem
-        run: git add build/**
+        run: git add DesignSystem/**
 
       - name: Subir cambios generados
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Actualizar tokens generados con Style Dictionary"
           branch: develop
-          file_pattern: "DesignSystem/build/**"
+          file_pattern: "DesignSystem/**"
