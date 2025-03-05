@@ -1,0 +1,46 @@
+name: Generar Tokens con Style Dictionary
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'config.js'
+      - 'tokens/**'
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    if: github.event_name != 'pull_request' || github.event.pull_request.merged == true
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Lista de archivos
+        run: ls -al
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar dependencias
+        run: npm install style-dictionary
+
+      - name: Ejecutar Style Dictionary
+        run: npx style-dictionary build
+
+      - name: Subir cambios generados
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualizar tokens generados con Style Dictionary"
+          branch: main
+          file_pattern: "build/**"
