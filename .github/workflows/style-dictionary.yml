@@ -17,11 +17,14 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      - name: Lista de archivos en la raíz
+      - name: Lista de archivos en la raíz después del checkout
         run: ls -al
 
       - name: Verificar existencia de config.json
         run: test -f config.json && echo "config.json existe" || echo "config.json no existe"
+
+      - name: Mostrar contenido de config.json
+        run: cat config.json
 
       - name: Configurar Node.js
         uses: actions/setup-node@v3
