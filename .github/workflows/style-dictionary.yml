@@ -6,7 +6,7 @@ on:
       - develop
     paths:
       - 'DesignSystem/config.json'
-      - 'tokens/**'
+      - 'DesignSystem/tokens/**'
   workflow_dispatch:
 
 jobs:
@@ -37,8 +37,13 @@ jobs:
       - name: Instalar dependencias
         run: npm install style-dictionary
 
+      - name: Cambiar al directorio DesignSystem
+        working-directory: DesignSystem
+        run: pwd
+
       - name: Ejecutar Style Dictionary
-        run: npx style-dictionary build DesignSystem/config.json
+        working-directory: DesignSystem
+        run: npx style-dictionary build config.json
 
       - name: Subir cambios generados
         uses: stefanzweifel/git-auto-commit-action@v5
