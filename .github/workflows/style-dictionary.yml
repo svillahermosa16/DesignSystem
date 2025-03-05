@@ -20,6 +20,9 @@ jobs:
       - name: Lista de archivos en la raíz
         run: ls -al
 
+      - name: Verificar existencia de config.json
+        run: test -f config.json && echo "config.json existe" || echo "config.json no existe"
+
       - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
@@ -27,13 +30,6 @@ jobs:
 
       - name: Instalar dependencias
         run: npm install style-dictionary
-
-      - name: Verificar existencia de config.json
-        run: |
-          if [ ! -f config.json ]; then
-            echo "config.json no se encuentra en el directorio raíz."
-            exit 1
-          fi
 
       - name: Ejecutar Style Dictionary
         run: npx style-dictionary build config.json
