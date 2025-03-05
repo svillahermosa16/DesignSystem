@@ -5,7 +5,7 @@ on:
     branches:
       - develop
     paths:
-      - 'config.json'
+      - 'DesignSystem/config.json'
       - 'tokens/**'
   workflow_dispatch:
 
@@ -20,11 +20,14 @@ jobs:
       - name: Lista de archivos en la raíz después del checkout
         run: ls -al
 
-      - name: Verificar existencia de config.json
-        run: test -f config.json && echo "config.json existe" || echo "config.json no existe"
+      - name: Lista de archivos en el directorio DesignSystem
+        run: ls -al DesignSystem
 
-      - name: Mostrar contenido de config.json
-        run: cat config.json
+      - name: Verificar existencia de config.json en DesignSystem
+        run: test -f DesignSystem/config.json && echo "DesignSystem/config.json existe" || echo "DesignSystem/config.json no existe"
+
+      - name: Mostrar contenido de DesignSystem/config.json
+        run: cat DesignSystem/config.json
 
       - name: Configurar Node.js
         uses: actions/setup-node@v3
@@ -35,7 +38,7 @@ jobs:
         run: npm install style-dictionary
 
       - name: Ejecutar Style Dictionary
-        run: npx style-dictionary build config.json
+        run: npx style-dictionary build DesignSystem/config.json
 
       - name: Subir cambios generados
         uses: stefanzweifel/git-auto-commit-action@v5
