@@ -29,7 +29,7 @@ jobs:
         run: npm install style-dictionary
 
       - name: Ejecutar Style Dictionary
-        run: npx style-dictionary build DesignSystem/Sources/config.js
+        run: npx style-dictionary build DesignSystem/config.json
 
       - name: Subir cambios generados
         uses: stefanzweifel/git-auto-commit-action@v5
