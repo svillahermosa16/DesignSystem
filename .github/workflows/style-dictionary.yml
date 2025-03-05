@@ -9,6 +9,9 @@ on:
       - 'DesignSystem/tokens/**'
   workflow_dispatch:
 
+permissions:
+  contents: write  # Permiso para escribir contenido en el repositorio
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -45,9 +48,17 @@ jobs:
         working-directory: DesignSystem
         run: npx style-dictionary build config.json
 
+      - name: Lista de archivos generados en DesignSystem
+        run: ls -al DesignSystem
+
+      - name: Añadir cambios generados
+        run: git add DesignSystem/**
+
       - name: Subir cambios generados
         uses: stefanzweifel/git-auto-commit-action@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         with:
           commit_message: "Actualizar tokens generados con Style Dictionary"
           branch: develop
-          file_pattern: "build/**"
+          file_pattern: "DesignSystem/**"
