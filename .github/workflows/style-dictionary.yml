@@ -26,7 +26,7 @@ jobs:
       - name: Lista de archivos en el directorio DesignSystem
         run: ls -al DesignSystem
 
-      - name: Verificar existencia de buid.js en DesignSystem
+      - name: Verificar existencia de build.js en DesignSystem
         run: test -f DesignSystem/build.js && echo "DesignSystem/build.js existe" || echo "DesignSystem/build.js no existe"
 
       - name: Mostrar contenido de DesignSystem/build.js
@@ -46,7 +46,7 @@ jobs:
 
       - name: Ejecutar Style Dictionary
         working-directory: DesignSystem
-        run: npx style-dictionary build -c buid.js
+        run: npx style-dictionary build -c build.js
 
       - name: Lista de archivos generados en DesignSystem
         run: ls -al DesignSystem
