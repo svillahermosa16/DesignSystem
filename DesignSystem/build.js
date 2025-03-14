@@ -317,7 +317,7 @@ const myStyleDictionary = new StyleDictionary({
                 "format": "ios-swift/enum.swift",
                 "filter": 'isSpacingOrSizing',
                 "options": {
-                  "className": "MBDesignSystemSpacing&Sizing"
+                  "className": "MBDesignSystemSpacingSizing"
                 }
             },
             {
