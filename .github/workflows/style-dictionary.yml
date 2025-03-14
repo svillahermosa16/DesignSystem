@@ -5,8 +5,8 @@ on:
     branches:
       - develop
     paths:
-      - 'DesignSystem/config.json'
-      - 'DesignSystem/tokens/**'
+      - 'DesignSystem/build.js'
+      - 'DesignSystem/ComplexTokens/**'
   workflow_dispatch:
 
 permissions:
@@ -26,11 +26,11 @@ jobs:
       - name: Lista de archivos en el directorio DesignSystem
         run: ls -al DesignSystem
 
-      - name: Verificar existencia de config.json en DesignSystem
-        run: test -f DesignSystem/config.json && echo "DesignSystem/config.json existe" || echo "DesignSystem/config.json no existe"
+      - name: Verificar existencia de buid.js en DesignSystem
+        run: test -f DesignSystem/build.js && echo "DesignSystem/build.js existe" || echo "DesignSystem/build.js no existe"
 
-      - name: Mostrar contenido de DesignSystem/config.json
-        run: cat DesignSystem/config.json
+      - name: Mostrar contenido de DesignSystem/build.js
+        run: cat DesignSystem/build.js
 
       - name: Configurar Node.js
         uses: actions/setup-node@v3
@@ -46,7 +46,7 @@ jobs:
 
       - name: Ejecutar Style Dictionary
         working-directory: DesignSystem
-        run: npx style-dictionary build config.json
+        run: npx style-dictionary build -c buid.js
 
       - name: Lista de archivos generados en DesignSystem
         run: ls -al DesignSystem
