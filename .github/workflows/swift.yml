@@ -14,7 +14,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Cambiar al directorio DesignSystem
+        run: cd DesignSystem
+
       - name: Build
         run: swift build -v
+
       - name: Run tests
         run: swift test -v
