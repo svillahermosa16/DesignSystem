@@ -302,6 +302,9 @@ const myStyleDictionary = new StyleDictionary({
                 "format": "ios-swift/enum.swift",
                 "filter": {
                 "type": "color"
+                },
+                "options": {
+                  "className": "MBDesignSystemColor"
                 }
             },
             {
@@ -312,7 +315,10 @@ const myStyleDictionary = new StyleDictionary({
             {
                 "destination": "MBDesignSystemSpacing&Sizing.swift",
                 "format": "ios-swift/enum.swift",
-                "filter": 'isSpacingOrSizing'
+                "filter": 'isSpacingOrSizing',
+                "options": {
+                  "className": "MBDesignSystemSpacing&Sizing"
+                }
             },
             {
                 "destination": "MBDesignSystemShadows.swift",
@@ -326,6 +332,9 @@ const myStyleDictionary = new StyleDictionary({
                 "format": "ios-swift/enum.swift",
                 "filter": {
                     "type": "opacity"
+                },
+                "options": {
+                  "className": "MBDesignSystemOpacity"
                 }
             }
         ]
