@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum {
+public enum MBDesignSystemColor {
     public static let buiAppNavigationBarContainerColorBackgroundEnabled = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
     public static let buiAppNavigationBarFloatingActionButtonContainerColorBackgroundEnabled = UIColor(red: 0.953, green: 0.451, blue: 0.125, alpha: 1)
     public static let buiAppNavigationBarFloatingActionButtonContainerColorBackgroundEnabledCopy = UIColor(red: 0.745, green: 0.259, blue: 0.020, alpha: 1)

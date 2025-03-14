@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum {
+public enum MBDesignSystemSpacing&Sizing {
     public static let buiAppNavigationBarFloatingActionButtonContainerHeightDefault = 56
     public static let buiAppNavigationBarFloatingActionButtonContainerWidthDefault = 56
     public static let buiAppNavigationBarItemNavigationBarContainerHeightDefault = 60
