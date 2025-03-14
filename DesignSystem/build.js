@@ -288,7 +288,7 @@ const myStyleDictionary = new StyleDictionary({
         "size/rem",
         "color/css"
       ],
-      "buildPath": "build/ios-swift/",
+      "buildPath": "Sources/DesignSystem/ios-swift/",
       "files": [
             {
             "destination": "MBDesignSystemFonts.swift",
