@@ -312,7 +312,7 @@ const myStyleDictionary = new StyleDictionary({
                 "type": "isColorWithoutLinearGradient"
                 },
                 "options": {
-                  "className": "MBDesignSystemColor"
+                  "className": "StyleDictionaryColor"
                 }
             },
             {
