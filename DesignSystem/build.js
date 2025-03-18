@@ -8,7 +8,7 @@ function createUIColorFromRGBA(rgba) {
   return `UIColor(red: ${r / 255}, green: ${g / 255}, blue: ${b / 255}, alpha: ${a})`;
 }
 
-//TYPOGRAPHY 
+//TYPOGRAPHY
 StyleDictionary.registerTransform({
   name: 'font/uifont',
   type: 'value',
@@ -38,7 +38,7 @@ StyleDictionary.registerTransform({
       '700': "bold",
       '800': "heavy",
       '900': "black",
-      'regular': "regular", 
+      'regular': "regular",
       'medium': "medium",
       'bold': "bold"
     };
@@ -253,7 +253,12 @@ StyleDictionary.registerFormat({
     }
   });
 
-
+const isColorWithoutLinearGradient = {
+    name: 'isColorWithoutLinearGradient',
+    filter: async (token, options) => {
+      return token.type === 'color' && !token.value.includes('linear-gradient');
+    },
+};
 
 const isBorderOrRadius = {
     name: 'isBorderOrRadius',
@@ -272,10 +277,11 @@ const isSpacingOrSizing = {
 
 StyleDictionary.registerFilter(isBorderOrRadius);
 StyleDictionary.registerFilter(isSpacingOrSizing);
+StyleDictionary.registerFilter(isColorWithoutLinearGradient);
 
 // Configure Style Dictionary
 const myStyleDictionary = new StyleDictionary({
-  "source": ["ComplexTokens/**/*.json"],
+  "source": ["tokens/**/*.json"],
   "platforms": {
     "ios-swift": {
       "transformGroup": "ios-swift",
@@ -288,11 +294,11 @@ const myStyleDictionary = new StyleDictionary({
         "size/rem",
         "color/css"
       ],
-      "buildPath": "Sources/DesignSystem/ios-swift/",
+      "buildPath": "build/ios-swift/",
       "files": [
             {
             "destination": "MBDesignSystemFonts.swift",
-            "format": "ios/swift/uifonts", 
+            "format": "ios/swift/uifonts",
             "filter": {
                 "type": "typography"
                 }
@@ -300,12 +306,7 @@ const myStyleDictionary = new StyleDictionary({
             {
                 "destination": "MBDesignSystemColor.swift",
                 "format": "ios-swift/enum.swift",
-                "filter": {
-                "type": "color"
-                },
-                "options": {
-                  "className": "MBDesignSystemColor"
-                }
+                "filter": "isColorWithoutLinearGradient"
             },
             {
                 "destination": "MBDesignSystemBorders.swift",
@@ -315,10 +316,7 @@ const myStyleDictionary = new StyleDictionary({
             {
                 "destination": "MBDesignSystemSpacing&Sizing.swift",
                 "format": "ios-swift/enum.swift",
-                "filter": 'isSpacingOrSizing',
-                "options": {
-                  "className": "MBDesignSystemSpacingSizing"
-                }
+                "filter": 'isSpacingOrSizing'
             },
             {
                 "destination": "MBDesignSystemShadows.swift",
@@ -332,9 +330,6 @@ const myStyleDictionary = new StyleDictionary({
                 "format": "ios-swift/enum.swift",
                 "filter": {
                     "type": "opacity"
-                },
-                "options": {
-                  "className": "MBDesignSystemOpacity"
                 }
             }
         ]
