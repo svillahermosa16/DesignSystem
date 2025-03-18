@@ -8,7 +8,7 @@ function createUIColorFromRGBA(rgba) {
   return `UIColor(red: ${r / 255}, green: ${g / 255}, blue: ${b / 255}, alpha: ${a})`;
 }
 
-//TYPOGRAPHY 
+//TYPOGRAPHY
 StyleDictionary.registerTransform({
   name: 'font/uifont',
   type: 'value',
@@ -38,7 +38,7 @@ StyleDictionary.registerTransform({
       '700': "bold",
       '800': "heavy",
       '900': "black",
-      'regular': "regular", 
+      'regular': "regular",
       'medium': "medium",
       'bold': "bold"
     };
@@ -253,12 +253,7 @@ StyleDictionary.registerFormat({
     }
   });
 
-const isColorWithoutLinearGradient = {
-    name: 'isColorWithoutLinearGradient',
-    filter: async (token, options) => {
-      return token.type === 'color' && !token.value.includes('linear-gradient');
-    },
-};
+
 
 const isBorderOrRadius = {
     name: 'isBorderOrRadius',
@@ -273,11 +268,17 @@ const isSpacingOrSizing = {
       return token.type === 'spacing' || token.type === 'sizing';
     },
   };
+
+const isColorWithoutLinearGradient = {
+    name: 'isColorWithoutLinearGradient',
+    filter: async (token, options) => {
+      return token.type === 'color' && !token.value.includes('linear-gradient');
+    },
+};
  
 
 StyleDictionary.registerFilter(isBorderOrRadius);
 StyleDictionary.registerFilter(isSpacingOrSizing);
-StyleDictionary.registerFilter(isColorWithoutLinearGradient);
 
 // Configure Style Dictionary
 const myStyleDictionary = new StyleDictionary({
@@ -296,70 +297,57 @@ const myStyleDictionary = new StyleDictionary({
       ],
       "buildPath": "Sources/DesignSystem/ios-swift/",
       "files": [
-        {
-          "destination": "BUIDesignSystemFonts.swift",
-          "format": "ios/swift/uifonts",
-          "filter": {
-            "type": "typography"
-          },
-            "options": {
-                "className": "BUISystemFonts"
+            {
+            "destination": "MBDesignSystemFonts.swift",
+            "format": "ios/swift/uifonts",
+            "filter": {
+                "type": "typography"
+                }
+            },
+            {
+                "destination": "MBDesignSystemColor.swift",
+                "format": "ios-swift/enum.swift",
+                "filter": {
+                "type": "isColorWithoutLinearGradient"
+                },
+                "options": {
+                  "className": "MBDesignSystemColor"
+                }
+            },
+            {
+                "destination": "MBDesignSystemBorders.swift",
+                "format": "ios/swift/borderValues",
+                "filter": 'isBorderOrRadius'
+            },
+            {
+                "destination": "MBDesignSystemSpacing&Sizing.swift",
+                "format": "ios-swift/enum.swift",
+                "filter": 'isSpacingOrSizing',
+                "options": {
+                  "className": "MBDesignSystemSpacingSizing"
+                }
+            },
+            {
+                "destination": "MBDesignSystemShadows.swift",
+                "format": "ios/swift/shadow",
+                "filter": {
+                    "type": "boxShadow"
+                }
+            },
+            {
+                "destination": "MBDesignSystemOpacity.swift",
+                "format": "ios-swift/enum.swift",
+                "filter": {
+                    "type": "opacity"
+                },
+                "options": {
+                  "className": "MBDesignSystemOpacity"
+                }
             }
-        },
-        
-        {
-          "destination": "BUIDesignSystemColor.swift",
-          "format": "ios-swift/enum.swift",
-          "filter": "isColorWithoutLinearGradient"
-          "options": {
-              "className": "BUISystemColors"
-             }
-        },
-        
-        {
-          "destination": "BUISystemBorders.swift",
-          "format": "ios/swift/borderValues",
-          "filter": "isBorderOrRadius"
-          "options": {
-                "className": "BUISystemBorders"
-               }
-        },
-        
-        {
-          "destination": "BUISystemSpacingAndSizing.swift",
-          "format": "ios-swift/enum.swift",
-          "filter": "isSpacingOrSizing"
-          "options": {
-                "className": "BUISystemSpacingAndSizing"
-               }
-        },
-        
-        {
-          "destination": "BUISystemShadows.swift",
-          "format": "ios/swift/shadow",
-          "filter": {
-            "type": "boxShadow"
-          },
-          "options": {
-            "className": "BUISystemShadows"
-            }
-        },
-        
-        {
-          "destination": "MBDesignSystemOpacity.swift",
-          "format": "ios-swift/enum.swift",
-          "filter": {
-            "type": "opacity"
-          },
-          "options": {
-            "className": "BUISystemShadows"
-            }
-        }
-      ]
+        ]
     }
-  }
-});
-
+    }
+    });
 
 // Build all platforms
 myStyleDictionary.buildAllPlatforms();
