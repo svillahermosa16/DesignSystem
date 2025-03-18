@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum MBDesignSystemColor {
+public enum {
     public static let buiAppNavigationBarContainerColorBackgroundEnabled = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
     public static let buiAppNavigationBarFloatingActionButtonContainerColorBackgroundEnabled = UIColor(red: 0.953, green: 0.451, blue: 0.125, alpha: 1)
     public static let buiAppNavigationBarFloatingActionButtonContainerColorBackgroundEnabledCopy = UIColor(red: 0.745, green: 0.259, blue: 0.020, alpha: 1)
@@ -275,7 +275,6 @@ public enum MBDesignSystemColor {
     public static let buiGlobalTooltipColorBackgroundDefault = UIColor(red: 0.310, green: 0.310, blue: 0.329, alpha: 1)
     public static let buiGlobalTooltipColorContentDefault = UIColor(red: 0.969, green: 0.969, blue: 0.973, alpha: 1)
     public static let buiGlobalTooltipColorTailDefault = UIColor(red: 0.310, green: 0.310, blue: 0.329, alpha: 1)
-    public static let buiMobileButtonGroupContainerColorBackgroundDefault = linear-gradient(180deg, rgba(UIColor(red: 0.969, green: 0.969, blue: 0.973, alpha: 1), 0) 2%, rgba( UIColor(red: 0.969, green: 0.969, blue: 0.973, alpha: 1) , 1) 70%)
     public static let colorBaseBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1)
     public static let colorBaseWhite = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
     public static let colorGrass100 = UIColor(red: 0.718, green: 0.945, blue: 0.796, alpha: 1)
