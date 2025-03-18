@@ -308,12 +308,12 @@ const myStyleDictionary = new StyleDictionary({
             {
                 "destination": "MBDesignSystemColor.swift",
                 "format": "ios-swift/enum.swift",
-                "filter": {
-                "type": "isColorWithoutLinearGradient"
-                },
                 "options": {
                   "className": "StyleDictionaryColor"
-                }
+                },
+                "filter": {
+                  "type": "isColorWithoutLinearGradient"
+                }                
             },
             {
                 "destination": "MBDesignSystemBorders.swift",
