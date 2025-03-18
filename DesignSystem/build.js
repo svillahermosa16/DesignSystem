@@ -297,40 +297,63 @@ const myStyleDictionary = new StyleDictionary({
       "buildPath": "Sources/DesignSystem/ios-swift/",
       "files": [
         {
-          "destination": "MBDesignSystemFonts.swift",
+          "destination": "BUIDesignSystemFonts.swift",
           "format": "ios/swift/uifonts",
           "filter": {
             "type": "typography"
-          }
+          },
+            "options": {
+                "className": "BUISystemFonts"
+            }
         },
+        
         {
-          "destination": "MBDesignSystemColor.swift",
+          "destination": "BUIDesignSystemColor.swift",
           "format": "ios-swift/enum.swift",
           "filter": "isColorWithoutLinearGradient"
+          "options": {
+              "className": "BUISystemColors"
+             }
         },
+        
         {
-          "destination": "MBDesignSystemBorders.swift",
+          "destination": "BUISystemBorders.swift",
           "format": "ios/swift/borderValues",
           "filter": "isBorderOrRadius"
+          "options": {
+                "className": "BUISystemBorders"
+               }
         },
+        
         {
-          "destination": "MBDesignSystemSpacing&Sizing.swift",
+          "destination": "BUISystemSpacingAndSizing.swift",
           "format": "ios-swift/enum.swift",
           "filter": "isSpacingOrSizing"
+          "options": {
+                "className": "BUISystemSpacingAndSizing"
+               }
         },
+        
         {
-          "destination": "MBDesignSystemShadows.swift",
+          "destination": "BUISystemShadows.swift",
           "format": "ios/swift/shadow",
           "filter": {
             "type": "boxShadow"
-          }
+          },
+          "options": {
+            "className": "BUISystemShadows"
+            }
         },
+        
         {
           "destination": "MBDesignSystemOpacity.swift",
           "format": "ios-swift/enum.swift",
           "filter": {
             "type": "opacity"
-          }
+          },
+          "options": {
+            "className": "BUISystemShadows"
+            }
         }
       ]
     }
